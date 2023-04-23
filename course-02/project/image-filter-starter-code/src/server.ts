@@ -44,7 +44,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
       })
       .catch(e => {
         console.error(`Something went wrong: ${e.message}`);
-        res.status(422).send(`Something went wrong: ${e.message}`);
+        res.status(422).send(`${e.message}`);
       });
   });
   //! END @TODO1
