@@ -29,7 +29,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
   /**************************************************************************** */
   app.get("/filteredimage/", async ( req: Request, res: Response ) => {
-    let image_url = req.query.image_url.toString();
+    let image_url = req.query.image_url;
     if ( !image_url ) {
       return res.status(400)
                 .send('image_url is required');
@@ -44,7 +44,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
       })
       .catch(e => {
         console.error(`Something went wrong: ${e.message}`);
-        res.status(500).send(`Something went wrong: ${e.message}`);
+        res.status(422).send(`Something went wrong: ${e.message}`);
       });
   });
   //! END @TODO1
